@@ -27,3 +27,8 @@ composite_list.npy contains a set of predefined gestures, and the labels are con
 The images are given along with the code.
 
 
+
+Manisha
+Manpreet
+
+
