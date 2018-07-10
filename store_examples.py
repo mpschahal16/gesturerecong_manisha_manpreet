@@ -17,7 +17,8 @@ while (cap.isOpened()):
 
 	roi= img[100:500, 100:500]
 	gray= cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-	blurred = cv2.GaussianBlur(gray, (25,25), 1)
+	blurred = cv2.GaussianBlur(gray, (35,35), 1)
+	#blurred=gray
 	cv2.imshow('Blurred ', blurred)
 
 	_, edges= cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
@@ -45,15 +46,12 @@ while (cap.isOpened()):
 
 	
 
-	if key & 0xFF== ord('q'):
+	if key & 0xFF== 27:
 		c = np.asarray(example_contour)
-		print (c.shape)
-		print(labels)
 		np.save('gestures/composite_list.npy', c)
 		np.save('gestures/composite_list_labels.npy', labels)
 		for img in images:
 			i = str(imname)
-			print(i)
 			cv2.imwrite('gestures/'+i.zfill(6)+'.jpg', img)
 			imname+=1
 		break	 
