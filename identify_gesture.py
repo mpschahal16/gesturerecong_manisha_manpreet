@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from numpy import linalg
 cap= cv2.VideoCapture(0)
 idx=0
 
@@ -14,8 +13,8 @@ labels = np.load('gestures/composite_list_labels.npy')
 while (cap.isOpened()):
 	ret, img= cap.read()
 	img= cv2.flip(img, 1)
-	cv2.rectangle(img,(300,300),(0,0),(0,255,0),0)
-	roi= img[0:300, 0:300]
+	cv2.rectangle(img, (500, 500), (100, 100), (0, 255, 0), 0)
+	roi = img[100:500, 100:500]
 	gray= cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
 	blurred = cv2.GaussianBlur(gray, (35,35), 0)
 	_, edges= cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
@@ -35,7 +34,7 @@ while (cap.isOpened()):
 	M = cv2.moments(hand)
 
 	cv2.drawContours(temp, [hand], -1, (0, 255,0), -1)
-	cv2.drawContours(img, [hand], -1, (0, 255,0), -1)
+	#cv2.drawContours(img, [hand], -1, (0, 255,0), -1)
 
 	key = cv2.waitKey(1)	
 	
@@ -58,6 +57,7 @@ while (cap.isOpened()):
 
 
 	cv2.imshow('Place your hand in the rectangle', img)
+	cv2.imshow('Contour', temp)
 	
 
 

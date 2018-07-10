@@ -10,17 +10,24 @@ imname=  0
 while (cap.isOpened()):
 	ret, img= cap.read()
 	img= cv2.flip(img, 1)
-	cv2.rectangle(img,(300,300),(0,0),(0,255,0),0)
-	roi= img[0:300, 0:300]
+	cv2.rectangle(img,(500,500),(100,100),(0,255,0),0)
+
+
+
+
+	roi= img[100:500, 100:500]
 	gray= cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-	blurred = cv2.GaussianBlur(gray, (35,35), 0)
+	blurred = cv2.GaussianBlur(gray, (25,25), 1)
+	cv2.imshow('Blurred ', blurred)
+
 	_, edges= cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
-	_, contours, hierarchy = cv2.findContours(edges.copy(),cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-	y=len(contours)	
-	area= np.zeros(y)	
+	_, contours, hierarchy = cv2.findContours(edges,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+	y=len(contours)
+	area= np.zeros(y)
 	for i in range(0, y):
 		area[i] = cv2.contourArea(contours[i])
-	
+
+
 	index= area.argmax()
 	hand = contours[index]
 	x,y,w,h = cv2.boundingRect(hand)
@@ -28,12 +35,14 @@ while (cap.isOpened()):
 	temp = np.zeros(roi.shape, np.uint8)
 	
 
-	M = cv2.moments(hand)
+	#M = cv2.moments(hand)
 
-	cv2.drawContours(img, [hand], -1, (0, 255,0), -1)
+	#cv2.drawContours(img, [hand], -1, (0, 255,0), -1)
 	cv2.drawContours(temp, [hand], -1, (0, 255,0), -1)
 
-	key = cv2.waitKey(1)	
+	key = cv2.waitKey(1)
+
+
 	
 
 	if key & 0xFF== ord('q'):
@@ -44,7 +53,8 @@ while (cap.isOpened()):
 		np.save('gestures/composite_list_labels.npy', labels)
 		for img in images:
 			i = str(imname)
-			cv2.imwrite('gestures/'+i.zfill(4)+'.jpg', img)
+			print(i)
+			cv2.imwrite('gestures/'+i.zfill(6)+'.jpg', img)
 			imname+=1
 		break	 
 	elif key & 0xFF == ord('0'):
@@ -77,9 +87,33 @@ while (cap.isOpened()):
 		images.append(temp)
 		labels.append(5)
 		print(len(example_contour))
+	elif key & 0xFF == ord('6'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append(6)
+		print(len(example_contour))
+	elif key & 0xFF == ord('7'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append(7)
+		print(len(example_contour))
+	elif key & 0xFF == ord('8'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append(8)
+		print(len(example_contour))
+	elif key & 0xFF == ord('9'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append(9)
+		print(len(example_contour))
+	elif key & 0xFF == ord('a'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('a')
+		print(len(example_contour))
 			
 	cv2.imshow('Place your hand in the rectangle', img)
 	cv2.imshow('Contour', temp)
-	cv2.moveWindow('Contour', 600, 0)
 
 
