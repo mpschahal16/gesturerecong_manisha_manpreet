@@ -112,6 +112,131 @@ while (cap.isOpened()):
 		images.append(temp)
 		labels.append('a')
 		print(len(example_contour))
+	elif key & 0xFF == ord('b'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('b')
+		print(len(example_contour))
+	elif key & 0xFF == ord('c'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('c')
+		print(len(example_contour))
+	elif key & 0xFF == ord('d'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('d')
+		print(len(example_contour))
+	elif key & 0xFF == ord('e'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('e')
+		print(len(example_contour))
+	elif key & 0xFF == ord('f'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('f')
+		print(len(example_contour))
+	elif key & 0xFF == ord('g'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('g')
+		print(len(example_contour))
+	elif key & 0xFF == ord('h'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('h')
+		print(len(example_contour))
+	elif key & 0xFF == ord('i'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('i')
+		print(len(example_contour))
+	elif key & 0xFF == ord('j'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('j')
+		print(len(example_contour))
+	elif key & 0xFF == ord('k'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('k')
+		print(len(example_contour))
+	elif key & 0xFF == ord('l'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('l')
+		print(len(example_contour))
+	elif key & 0xFF == ord('m'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('m')
+		print(len(example_contour))
+	elif key & 0xFF == ord('n'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('n')
+		print(len(example_contour))
+	elif key & 0xFF == ord('o'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('o')
+		print(len(example_contour))
+	elif key & 0xFF == ord('p'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('p')
+		print(len(example_contour))
+	elif key & 0xFF == ord('q'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('q')
+		print(len(example_contour))
+	elif key & 0xFF == ord('r'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('r')
+		print(len(example_contour))
+	elif key & 0xFF == ord('s'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('s')
+		print(len(example_contour))
+	elif key & 0xFF == ord('t'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('t')
+		print(len(example_contour))
+	elif key & 0xFF == ord('u'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('u')
+		print(len(example_contour))
+	elif key & 0xFF == ord('v'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('v')
+		print(len(example_contour))
+	elif key & 0xFF == ord('w'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('w')
+		print(len(example_contour))
+	elif key & 0xFF == ord('x'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('x')
+		print(len(example_contour))
+	elif key & 0xFF == ord('y'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('y')
+		print(len(example_contour))
+	elif key & 0xFF == ord('z'):
+		example_contour.append(hand)
+		images.append(temp)
+		labels.append('z')
+		print(len(example_contour))
 			
 	cv2.imshow('Place your hand in the rectangle', img)
 	cv2.imshow('Contour', temp)
