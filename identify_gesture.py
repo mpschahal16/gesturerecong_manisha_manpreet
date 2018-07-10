@@ -1,5 +1,9 @@
 import cv2
 import numpy as np
+
+from pygame import mixer # Load the required library
+
+mixer.init()
 cap= cv2.VideoCapture(0)
 idx=0
 
@@ -58,6 +62,12 @@ while (cap.isOpened()):
 		result = labels[z]
 		letter=result
 		cv2.putText(img,str(result), (600, 20), font, 0.7,(255,0,0),2,cv2.LINE_AA)
+		path='audio/'+letter+'.wav'
+		mixer.music.load(path)
+		mixer.music.play()
+
+
+
 
 	elif key==ord('a'):
 		measures = list()
@@ -71,7 +81,12 @@ while (cap.isOpened()):
 		string=string+letter
 		cv2.putText(img, str(result), (600, 20), font, 0.7, (255, 0, 0), 2, cv2.LINE_AA)
 		cv2.putText(img, string, (0, 60), font, 0.7, (255, 0, 0), 2, cv2.LINE_AA)
+		path = 'audio/' + letter + '.wav'
+		mixer.music.load(path)
+		mixer.music.play()
 		letter=''
+
+
 
 	cv2.putText(img, string, (0, 60), font, 0.7, (255, 0, 0), 2, cv2.LINE_AA)
 	cv2.imshow('Place your hand in the rectangle', img)
