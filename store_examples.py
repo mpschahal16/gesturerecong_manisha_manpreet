@@ -10,14 +10,14 @@ imname=  0
 while (cap.isOpened()):
 	ret, img= cap.read()
 	img= cv2.flip(img, 1)
-	cv2.rectangle(img,(500,500),(100,100),(0,255,0),0)
+	cv2.rectangle(img,(150,50),(450,350),(0,255,0),0)
 
 
 
 
-	roi= img[100:500, 100:500]
+	roi= img[50:349, 150:449]
 	gray= cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-	blurred = cv2.GaussianBlur(gray, (35,35), 1)
+	blurred = cv2.GaussianBlur(gray, (41,41), 1)
 	#blurred=gray
 	cv2.imshow('Blurred ', blurred)
 

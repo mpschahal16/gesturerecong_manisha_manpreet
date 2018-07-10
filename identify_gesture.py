@@ -13,10 +13,11 @@ labels = np.load('gestures/composite_list_labels.npy')
 while (cap.isOpened()):
 	ret, img= cap.read()
 	img= cv2.flip(img, 1)
-	cv2.rectangle(img, (500, 500), (100, 100), (0, 255, 0), 0)
-	roi = img[100:500, 100:500]
+	cv2.rectangle(img, (150, 50), (450, 350), (0, 255, 0), 0)
+
+	roi = img[50:349, 150:449]
 	gray= cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-	blurred = cv2.GaussianBlur(gray, (35,35), 0)
+	blurred = cv2.GaussianBlur(gray, (41,41), 0)
 	_, edges= cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 	_, contours, hierarchy = cv2.findContours(edges.copy(),cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
 	y=len(contours)	
@@ -39,7 +40,7 @@ while (cap.isOpened()):
 	key = cv2.waitKey(1)	
 	
 
-	if key & 0xFF== ord('q'):
+	if key & 0xFF== 27:
 			break	 
 	elif key == ord('c'):
 		example_contour.append(hand)
@@ -53,7 +54,7 @@ while (cap.isOpened()):
 
 		z= measures.index(min(measures))
 		result = labels[z]
-		cv2.putText(img,str(result), (600, 20), font, 0.7,(255,255,255),2,cv2.LINE_AA)
+		cv2.putText(img,str(result), (600, 20), font, 0.7,(255,0,0),2,cv2.LINE_AA)
 
 
 	cv2.imshow('Place your hand in the rectangle', img)
