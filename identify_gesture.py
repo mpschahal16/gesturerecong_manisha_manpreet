@@ -9,6 +9,8 @@ font= cv2.FONT_HERSHEY_SIMPLEX
 
 gestures = np.load('gestures/composite_list.npy')
 labels = np.load('gestures/composite_list_labels.npy')
+letter=''
+string=''
 
 while (cap.isOpened()):
 	ret, img= cap.read()
@@ -54,9 +56,24 @@ while (cap.isOpened()):
 
 		z= measures.index(min(measures))
 		result = labels[z]
+		letter=result
 		cv2.putText(img,str(result), (600, 20), font, 0.7,(255,0,0),2,cv2.LINE_AA)
 
+	elif key==ord('a'):
+		measures = list()
+		for g in gestures:
+			m = cv2.matchShapes(hand, g, 1, 0.0)
+			measures.append(m)
 
+		z = measures.index(min(measures))
+		result = labels[z]
+		letter = result
+		string=string+letter
+		cv2.putText(img, str(result), (600, 20), font, 0.7, (255, 0, 0), 2, cv2.LINE_AA)
+		cv2.putText(img, string, (0, 60), font, 0.7, (255, 0, 0), 2, cv2.LINE_AA)
+		letter=''
+
+	cv2.putText(img, string, (0, 60), font, 0.7, (255, 0, 0), 2, cv2.LINE_AA)
 	cv2.imshow('Place your hand in the rectangle', img)
 	cv2.imshow('Contour', temp)
 	
