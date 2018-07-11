@@ -23,9 +23,10 @@ while (cap.isOpened()):
 
 	roi = img[50:349, 150:449]
 	gray= cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-	blurred = cv2.GaussianBlur(gray, (41,41), 0)
+	blurred = cv2.GaussianBlur(gray, (31, 31), 1)
+	#cv2.imshow('Blurred ', blurred)
 	_, edges= cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
-	_, contours, hierarchy = cv2.findContours(edges.copy(),cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+	_, contours, hierarchy = cv2.findContours(edges.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 	y=len(contours)	
 	area= np.zeros(y)	
 	for i in range(0, y):
