@@ -26,13 +26,4 @@ It makes sense to understand the similarity measure as a calculation of differen
 composite_list.npy contains a set of predefined gestures, and the labels are contained in composite_list_labels.npy.
 The images are given along with the code.
 
-
-
-Manisha
 Manpreet
-
-
-
-kkkk
-
-
