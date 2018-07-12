@@ -4,7 +4,8 @@ To build your own gesture dictionary, run
 
 `python store_examples.py`
 
-Currently, you can store 5 gesture classes. Pressing numbers 1 to 5 will label the class.
+You can store alphabet and number gesture classes. Pressing numbers 0 to 9 and a to z will label the class.
+
 Press ' esc key' to save and quit.
 
 To identify gestures, run
@@ -12,6 +13,10 @@ To identify gestures, run
 `python identify_gesture.py`
 
 Press 'i' to identify.
+
+Press 'a' to append to string
+
+
 
 #Algorithm
 
