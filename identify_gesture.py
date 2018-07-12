@@ -43,7 +43,7 @@ while (cap.isOpened()):
 
 	hull = cv2.convexHull(hand)
 	cv2.drawContours(temp, [hull], 0, (0, 0, 255), 2)
-	cv2.drawContours(temp, [hand], -1, (0, 255,0), -1)
+	cv2.drawContours(temp, [hand], -1, (0, 255,0), 2)
 	#cv2.drawContours(img, [hand], -1, (0, 255,0), -1)
 
 	key = cv2.waitKey(1)	
