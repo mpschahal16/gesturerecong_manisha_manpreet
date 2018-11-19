@@ -61,7 +61,8 @@ while (cap.isOpened()):
 
         z = measures.index(min(measures))
         result = labels[z]
-        letter = result
+        letter = str(result)
+        print(letter)
         cv2.putText(img, str(result), (600, 20), font, 0.7, (255, 0, 0), 2, cv2.LINE_AA)
         path = 'audio/' + letter + '.wav'
         mixer.music.load(path)
@@ -78,7 +79,7 @@ while (cap.isOpened()):
 
         z = measures.index(min(measures))
         result = labels[z]
-        letter = result
+        letter = str(result)
         string = string + letter
         cv2.putText(img, str(result), (600, 20), font, 0.7, (255, 0, 0), 2, cv2.LINE_AA)
         cv2.putText(img, string, (0, 60), font, 0.7, (255, 0, 0), 2, cv2.LINE_AA)
